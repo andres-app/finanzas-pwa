@@ -14,27 +14,27 @@ require __DIR__ . '/../layout/header.php';
       <span>Gastos</span>
     </a>
 
-    <a href="<?= BASE_URL ?>/ingresos" class="apple-card bg-yellow-400 text-primary">
+    <a  class="apple-card bg-yellow-400 text-primary">
       <div class="icon">💰</div>
       <span>Ingresos</span>
     </a>
 
-    <a href="<?= BASE_URL ?>/ahorro" class="apple-card bg-blue-400">
+    <a  class="apple-card bg-blue-400">
       <div class="icon">🏦</div>
       <span>Ahorro</span>
     </a>
 
-    <a href="<?= BASE_URL ?>/reportes" class="apple-card bg-purple-500">
+    <a  class="apple-card bg-purple-500">
       <div class="icon">📊</div>
       <span>Reportes</span>
     </a>
 
-    <a href="<?= BASE_URL ?>/categorias" class="apple-card bg-sky-400">
+    <a  class="apple-card bg-sky-400">
       <div class="icon">🗂️</div>
       <span>Categorías</span>
     </a>
 
-    <a href="<?= BASE_URL ?>/logout" class="apple-card bg-red-500">
+    <a  class="apple-card bg-red-500">
       <div class="icon">🚪</div>
       <span>Salir</span>
     </a>

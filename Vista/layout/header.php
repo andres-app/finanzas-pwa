@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <title><?= $titulo ?? 'Chanchito' ?></title>
@@ -33,7 +34,8 @@
 
   <!-- GLOBAL STYLES + TRANSITIONS -->
   <style>
-    html, body {
+    html,
+    body {
       height: 100%;
       margin: 0;
       -webkit-tap-highlight-color: transparent;
@@ -60,9 +62,9 @@
       left: 0;
       right: 0;
       height: 84px;
-      background: rgba(255,255,255,.95);
+      background: rgba(255, 255, 255, .95);
       backdrop-filter: blur(14px);
-      border-top: 1px solid rgba(0,0,0,.08);
+      border-top: 1px solid rgba(0, 0, 0, .08);
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -103,6 +105,59 @@
     .has-bottom-nav {
       padding-bottom: 100px;
     }
+
+    /* ===== PRELOADER ===== */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 47, 90, 0.85);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity .35s ease;
+    }
+
+    .preloader.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader-card {
+      background: rgba(255, 255, 255, .95);
+      color: #0F2F5A;
+      padding: 28px 32px;
+      border-radius: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
+    }
+
+    /* Spinner moderno */
+    .spinner {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 3px solid #cbd5f5;
+      border-top-color: #0F2F5A;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loader-card p {
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .3px;
+    }
   </style>
 
   <!-- SERVICE WORKER -->
@@ -141,16 +196,51 @@
     });
   </script>
 
+  <script>
+    // Ocultar preloader cuando la página termina de cargar
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.classList.add('hide');
+      }
+    });
+
+    // Mostrar preloader al navegar entre páginas
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href || !href.startsWith('<?= BASE_URL ?>')) return;
+
+        link.addEventListener('click', () => {
+          const preloader = document.getElementById('preloader');
+          if (preloader) {
+            preloader.classList.remove('hide');
+          }
+        });
+      });
+    });
+  </script>
+
+
 </head>
 
 <body class="bg-primary text-white flex flex-col min-h-screen has-bottom-nav">
 
-<!-- HEADER -->
-<header class="px-5 py-4 flex justify-between items-center shrink-0">
-  <h1 class="text-xl font-semibold tracking-tight">
-    <?= $appName ?? 'Chanchito' ?>
-  </h1>
-  <span class="text-sm text-blue-200">
-    Hola, <?= $usuario ?? 'Usuario' ?>
-  </span>
-</header>
+  <!-- PRELOADER -->
+  <div id="preloader" class="preloader">
+    <div class="loader-card">
+      <div class="spinner"></div>
+      <p>Cargando…</p>
+    </div>
+  </div>
+
+
+  <!-- HEADER -->
+  <header class="px-5 py-4 flex justify-between items-center shrink-0">
+    <h1 class="text-xl font-semibold tracking-tight">
+      <?= $appName ?? 'Chanchito' ?>
+    </h1>
+    <span class="text-sm text-blue-200">
+      Hola, <?= $usuario ?? 'Usuario' ?>
+    </span>
+  </header>
