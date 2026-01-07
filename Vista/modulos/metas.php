@@ -6,7 +6,7 @@ $usuario = 'Andres';
 require __DIR__ . '/../layout/header.php';
 ?>
 
-<main class="page flex-1 px-5 pt-4">
+<main class="page flex-1 px-5 pt-4 overflow-y-auto">
 
   <!-- RESUMEN GENERAL -->
   <section class="mb-6">

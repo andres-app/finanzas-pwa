@@ -224,7 +224,7 @@
 
 </head>
 
-<body class="bg-primary text-white flex flex-col min-h-screen has-bottom-nav">
+<body class="bg-primary text-white flex flex-col min-h-screen has-bottom-nav overflow-hidden">
 
   <!-- PRELOADER -->
   <div id="preloader" class="preloader">
@@ -236,11 +236,14 @@
 
 
   <!-- HEADER -->
-  <header class="px-5 py-4 flex justify-between items-center shrink-0">
-    <h1 class="text-xl font-semibold tracking-tight">
-      <?= $appName ?? 'Mis Finanzas' ?>
-    </h1>
-    <span class="text-sm text-blue-200">
-      Hola, <?= $usuario ?? 'Usuario' ?>
-    </span>
+  <header class="app-header px-5 py-4 flex justify-between items-center">
+    <!-- CONTENT WRAPPER -->
+    <div class="flex-1 overflow-y-auto">
+
+      <h1 class="text-xl font-semibold tracking-tight">
+        <?= $appName ?? 'Mis Finanzas' ?>
+      </h1>
+      <span class="text-sm text-blue-200">
+        Hola, <?= $usuario ?? 'Usuario' ?>
+      </span>
   </header>
