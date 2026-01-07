@@ -1,6 +1,6 @@
 self.addEventListener('install', event => {
     event.waitUntil(
-      caches.open('chanchito-v1').then(cache => {
+      caches.open('Mis Finanzas-v1').then(cache => {
         return cache.addAll([
           '/public/dashboard',
           '/public/gastos',

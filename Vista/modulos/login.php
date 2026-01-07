@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Login | Chanchito.pe</title>
+  <title>Login | Mis Finanzas.pe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Tailwind CDN -->
@@ -30,7 +30,7 @@
 
     <!-- Logo -->
     <div class="text-center mb-6">
-      <h1 class="text-3xl font-bold text-white">Chanchito.pe</h1>
+      <h1 class="text-3xl font-bold text-white">Mis Finanzas.pe</h1>
       <p class="text-blue-200 mt-2">
         Ahorra carajo
       </p>

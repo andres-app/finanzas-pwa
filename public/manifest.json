@@ -1,6 +1,6 @@
 {
-    "name": "Chanchito",
-    "short_name": "Chanchito",
+    "name": "Mis Finanzas",
+    "short_name": "Mis Finanzas",
     "description": "Control de gastos personales",
     "start_url": "/public/dashboard",
     "scope": "/public/",

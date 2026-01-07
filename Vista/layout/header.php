@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title><?= $titulo ?? 'Chanchito' ?></title>
+  <title><?= $titulo ?? 'Mis Finanzas' ?></title>
 
   <!-- Viewport / PWA -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -15,7 +15,7 @@
   <!-- iOS PWA -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Chanchito">
+  <meta name="apple-mobile-web-app-title" content="Mis Finanzas">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -238,7 +238,7 @@
   <!-- HEADER -->
   <header class="px-5 py-4 flex justify-between items-center shrink-0">
     <h1 class="text-xl font-semibold tracking-tight">
-      <?= $appName ?? 'Chanchito' ?>
+      <?= $appName ?? 'Mis Finanzas' ?>
     </h1>
     <span class="text-sm text-blue-200">
       Hola, <?= $usuario ?? 'Usuario' ?>

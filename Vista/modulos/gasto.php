@@ -1,6 +1,6 @@
 <?php
-$titulo = 'Gastos | Chanchito';
-$appName = 'Chanchito';
+$titulo = 'Gastos | Mis Finanzas';
+$appName = 'Mis Finanzas';
 $usuario = 'Andres';
 
 require __DIR__ . '/../layout/header.php';

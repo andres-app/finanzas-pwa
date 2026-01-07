@@ -32,17 +32,29 @@ switch ($modulo) {
     CtrUsuario::login();
     break;
 
-  case 'dashboard':
-    require '../Vista/modulos/dashboard.php';
-    break;
-
   case 'gastos':
     require '../Controlador/CtrGasto.php';
     CtrGasto::inicio();
     break;
 
+  case 'dashboard':
+    require '../Vista/modulos/dashboard.php';
+    break;
+
   case 'perfil':
     require '../Vista/modulos/perfil.php';
+    break;
+
+  case 'ingresos':
+    require '../Vista/modulos/ingresos.php';
+    break;
+
+  case 'reportes':
+    require '../Vista/modulos/reportes.php';
+    break;
+
+  case 'ahorro':
+    require '../Vista/modulos/ahorro.php';
     break;
 
   default:
