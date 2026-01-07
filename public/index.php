@@ -57,6 +57,15 @@ switch ($modulo) {
     require '../Vista/modulos/ahorro.php';
     break;
 
+  case 'categorias':
+    require '../Vista/modulos/categorias.php';
+    break;
+
+  case 'metas':
+    require '../Vista/modulos/metas.php';
+    break;
+
+
   default:
     http_response_code(404);
     echo '<h1 style="color:white">404 - Página no encontrada</h1>';

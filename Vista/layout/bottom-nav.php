@@ -18,18 +18,18 @@ function isActive($m, $actual) {
     <span>Home</span>
   </a>
 
-  <a href="<?= BASE_URL ?>/gastos" class="tab <?= isActive('gastos', $moduloActual) ?>">
+  <a href="<?= BASE_URL ?>/ahorro" class="tab <?= isActive('ahorro', $moduloActual) ?>">
     <svg viewBox="0 0 24 24" class="icon">
       <path d="M12 8c-2.2 0-4 1.2-4 2.7S9.8 13.5 12 13.5s4 1.2 4 2.7S14.2 19 12 19M12 4v16" />
     </svg>
-    <span>Gastos</span>
+    <span>Ahorros</span>
   </a>
 
-  <a href="<?= BASE_URL ?>/ingresos" class="tab <?= isActive('ingresos', $moduloActual) ?>">
+  <a href="<?= BASE_URL ?>/reportes" class="tab <?= isActive('reportes', $moduloActual) ?>">
     <svg viewBox="0 0 24 24" class="icon">
       <path d="M4 12h16M10 18l2-2 2 2" />
     </svg>
-    <span>Ingresos</span>
+    <span>Reportes</span>
   </a>
 
   <a href="<?= BASE_URL ?>/perfil" class="tab <?= isActive('perfil', $moduloActual) ?>">
