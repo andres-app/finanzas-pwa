@@ -16,10 +16,62 @@ require __DIR__ . '/../layout/header.php';
   </section>
 
   <section class="mb-4">
-    <button class="w-full bg-red-500 text-white py-3 rounded-xl font-medium shadow-md active:scale-95 transition">
+    <button
+      id="btnNuevoGasto"
+      class="w-full bg-red-500/90 text-white py-3 rounded-xl font-medium shadow-md active:scale-95 transition">
       + Registrar gasto
     </button>
+
   </section>
+
+  <!-- MODAL NUEVO GASTO -->
+  <div id="modalGasto" class="modal-overlay hidden">
+
+    <div class="modal-sheet">
+
+      <!-- HEADER MODAL -->
+      <div class="modal-header">
+        <h3>Nuevo gasto</h3>
+        <button id="cerrarModalGasto">✕</button>
+      </div>
+
+      <!-- FORM -->
+      <form class="modal-body space-y-4">
+
+        <div>
+          <label>Monto</label>
+          <input type="number" placeholder="S/ 0.00" />
+        </div>
+
+        <div>
+          <label>Categoría</label>
+          <select>
+            <option>Alimentación</option>
+            <option>Transporte</option>
+            <option>Servicios</option>
+            <option>Otros</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Fecha</label>
+          <input type="date" />
+        </div>
+
+        <div>
+          <label>Descripción</label>
+          <input type="text" placeholder="Opcional" />
+        </div>
+
+        <button class="guardar-btn">
+          Guardar gasto
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
 
   <section class="space-y-3">
 
@@ -61,11 +113,11 @@ require __DIR__ . '/../layout/header.php';
     display: flex;
     align-items: center;
     gap: 12px;
-    background: rgba(255,255,255,.92);
+    background: rgba(255, 255, 255, .92);
     color: #0F2F5A;
     padding: 14px;
     border-radius: 1.25rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
   }
 
   .gasto-item .icon {
@@ -83,4 +135,100 @@ require __DIR__ . '/../layout/header.php';
     color: #ef4444;
     white-space: nowrap;
   }
+
+  /* ===== MODAL GASTO ===== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .35);
+    backdrop-filter: blur(6px);
+    z-index: 80;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .modal-overlay.hidden {
+    display: none;
+  }
+
+  .modal-sheet {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    color: #0F2F5A;
+    border-radius: 1.75rem 1.75rem 0 0;
+    padding: 20px;
+    animation: slideUp .35s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .modal-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .modal-header button {
+    font-size: 1.2rem;
+  }
+
+  .modal-body label {
+    font-size: .85rem;
+    color: #64748b;
+  }
+
+  .modal-body input,
+  .modal-body select {
+    width: 100%;
+    padding: 12px;
+    border-radius: .9rem;
+    border: 1px solid #e2e8f0;
+    margin-top: 4px;
+  }
+
+  .guardar-btn {
+    width: 100%;
+    margin-top: 12px;
+    background: #ef4444;
+    color: #fff;
+    padding: 14px;
+    border-radius: 1.1rem;
+    font-weight: 600;
+  }
 </style>
+
+<script>
+  const btnNuevoGasto = document.getElementById('btnNuevoGasto');
+  const modalGasto = document.getElementById('modalGasto');
+  const cerrarModal = document.getElementById('cerrarModalGasto');
+
+  btnNuevoGasto.addEventListener('click', () => {
+    modalGasto.classList.remove('hidden');
+  });
+
+  cerrarModal.addEventListener('click', () => {
+    modalGasto.classList.add('hidden');
+  });
+
+  modalGasto.addEventListener('click', e => {
+    if (e.target === modalGasto) {
+      modalGasto.classList.add('hidden');
+    }
+  });
+</script>
