@@ -40,8 +40,20 @@ require __DIR__ . '/../layout/header.php';
 
         <div>
           <label>Monto</label>
-          <input type="number" placeholder="S/ 0.00" />
+          <input
+            type="number"
+            id="montoGasto"
+            placeholder="S/ 0.00">
+
+          <!-- MONTOS RÁPIDOS -->
+          <div class="quick-amounts gasto">
+            <button type="button" data-value="20">20</button>
+            <button type="button" data-value="50">50</button>
+            <button type="button" data-value="100">100</button>
+            <button type="button" data-value="200">200</button>
+          </div>
         </div>
+
 
         <div>
           <label>Categoría</label>
@@ -211,6 +223,18 @@ require __DIR__ . '/../layout/header.php';
     border-radius: 1.1rem;
     font-weight: 600;
   }
+
+  /* ===== QUICK AMOUNTS GASTOS ===== */
+  .quick-amounts.gasto button {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+  }
+
+  .quick-amounts.gasto button:active {
+    background: #dc2626;
+    color: #fff;
+  }
 </style>
 
 <script>
@@ -230,5 +254,21 @@ require __DIR__ . '/../layout/header.php';
     if (e.target === modalGasto) {
       modalGasto.classList.add('hidden');
     }
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const montoInput = document.getElementById('montoGasto');
+
+    document.querySelectorAll('.quick-amounts.gasto button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const value = parseFloat(btn.dataset.value);
+        const current = parseFloat(montoInput.value) || 0;
+        montoInput.value = (current + value).toFixed(2);
+      });
+    });
+
   });
 </script>
