@@ -235,6 +235,31 @@ require __DIR__ . '/../layout/header.php';
     background: #dc2626;
     color: #fff;
   }
+
+  /* ===== QUICK AMOUNTS (BASE) ===== */
+.quick-amounts {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.quick-amounts button {
+  padding: 8px 14px;
+  border-radius: 9999px; /* 👈 CLAVE */
+  font-weight: 600;
+  font-size: .85rem;
+  background: #f8fafc;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  transition: all .15s ease;
+}
+
+/* feedback táctil */
+.quick-amounts button:active {
+  transform: scale(.95);
+}
+
 </style>
 
 <script>
