@@ -1,3 +1,11 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    header("Location: dashboard");
+    exit;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -37,7 +45,7 @@
     </div>
 
     <!-- Form -->
-    <form class="space-y-5" method="POST" action="/usuarios">
+    <<form class="space-y-5" method="POST">
 
       <div>
         <label class="text-sm text-blue-200">Usuario</label>

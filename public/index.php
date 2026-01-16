@@ -65,6 +65,12 @@ switch ($modulo) {
     require '../Vista/modulos/metas.php';
     break;
 
+  case 'logout':
+    session_destroy();
+    header("Location: login");
+    exit;
+
+
 
   default:
     http_response_code(404);

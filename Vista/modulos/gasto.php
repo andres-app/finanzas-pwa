@@ -215,14 +215,18 @@ require __DIR__ . '/../layout/header.php';
   }
 
   .guardar-btn {
-    width: 100%;
-    margin-top: 12px;
-    background: #ef4444;
-    color: #fff;
-    padding: 14px;
-    border-radius: 1.1rem;
-    font-weight: 600;
-  }
+  width: 100%;
+  margin-top: 16px;
+  background: #ef4444;
+  color: #fff;
+  padding: 14px;
+  border-radius: 1.1rem;
+  font-weight: 600;
+
+  position: sticky;   /* 👈 UX iOS */
+  bottom: 0;
+}
+
 
   /* ===== QUICK AMOUNTS GASTOS ===== */
   .quick-amounts.gasto button {

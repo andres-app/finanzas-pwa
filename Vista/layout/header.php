@@ -7,15 +7,17 @@
 
   <!-- Viewport / PWA -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<!-- PWA -->
+<link rel="manifest" href="/public/manifest.json">
+<meta name="theme-color" content="#0F2F5A">
 
-  <!-- PWA -->
-  <link rel="manifest" href="<?= BASE_URL ?>/manifest.json">
-  <meta name="theme-color" content="#0F2F5A">
+<!-- iOS PWA ICON (ESTA ERA LA QUE FALTABA) -->
+<link rel="apple-touch-icon" href="<?= BASE_URL ?>/icons/apple-touch-icon.png">
 
-  <!-- iOS PWA -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Mis Finanzas">
+<!-- iOS PWA -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Mis Finanzas">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
