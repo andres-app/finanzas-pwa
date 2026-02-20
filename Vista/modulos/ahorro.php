@@ -6,12 +6,12 @@ $usuario = 'Andres';
 require __DIR__ . '/../layout/header.php';
 ?>
 
-<main class="page flex-1 px-5 pt-4 overflow-y-auto">
+<main class="page page-shell flex-1 px-5 pt-4 overflow-y-auto">
 
     <!-- RESUMEN AHORRO -->
-    <!-- METAS (SLIDE HORIZONTAL) -->
+    <!-- METAS (SLIDE HORIZONTAL EN MÓVIL / GRID EN DESKTOP) -->
     <section class="mb-6">
-        <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
+        <div class="metas flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
 
             <!-- META -->
             <div class="meta-slide snap-start">
@@ -67,7 +67,6 @@ require __DIR__ . '/../layout/header.php';
         </div>
     </section>
 
-
     <!-- BOTÓN NUEVO AHORRO -->
     <section class="mb-6">
         <button class="w-full bg-sky-500/90 text-white py-3 rounded-xl font-medium shadow-md active:scale-95 transition">
@@ -77,7 +76,6 @@ require __DIR__ . '/../layout/header.php';
 
     <!-- HISTORIAL -->
     <section class="space-y-3">
-
         <div class="ahorro-item">
             <div class="icon bg-sky-100 text-sky-600">🏦</div>
             <div class="flex-1">
@@ -95,7 +93,6 @@ require __DIR__ . '/../layout/header.php';
             </div>
             <span class="monto">+ S/ 500.00</span>
         </div>
-
     </section>
 
 </main>
@@ -103,6 +100,10 @@ require __DIR__ . '/../layout/header.php';
 <?php require __DIR__ . '/../layout/bottom-nav.php'; ?>
 
 <style>
+    /* =========================================================
+       AHORRO - Mobile first (tu diseño actual se respeta)
+       ========================================================= */
+
     .ahorro-item {
         display: flex;
         align-items: center;
@@ -122,12 +123,14 @@ require __DIR__ . '/../layout/header.php';
         align-items: center;
         justify-content: center;
         font-size: 1.3rem;
+        flex: 0 0 auto;
     }
 
     .ahorro-item .monto {
         font-weight: 600;
         color: #0284c7;
         white-space: nowrap;
+        flex: 0 0 auto;
     }
 
     .meta-slide {
@@ -137,5 +140,46 @@ require __DIR__ . '/../layout/header.php';
         padding: 20px;
         border-radius: 1.75rem;
         box-shadow: 0 12px 30px rgba(0, 0, 0, .15);
+    }
+
+    /* =========================================================
+       DESKTOP MODEL (sin afectar móvil):
+       - Limita ancho (evita estiramiento)
+       - Metas pasan a GRID
+       ========================================================= */
+
+    /* Contenedor principal centrado en desktop */
+    .page-shell {
+        width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+        .page-shell {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        /* Metas: de carrusel a grid */
+        .metas {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            overflow: visible;
+            padding-bottom: 0;
+        }
+
+        /* Card: deja de ser enorme (sin min-width) */
+        .metas .meta-slide {
+            min-width: 0;
+        }
+    }
+
+    /* Desktop grande: 4 columnas si quieres más “dashboard” */
+    @media (min-width: 1280px) {
+        .metas {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
     }
 </style>
