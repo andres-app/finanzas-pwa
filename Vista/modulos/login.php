@@ -1,13 +1,14 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header("Location: dashboard");
-    exit;
+  header("Location: dashboard");
+  exit;
 }
 ?>
 
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <title>Login | Mis Finanzas.pe</title>
@@ -38,24 +39,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Logo -->
     <div class="text-center mb-6">
-      <h1 class="text-3xl font-bold text-white">Mis Finanzas.pe</h1>
+      <h1 class="text-3xl font-bold text-white">Finanzas.pe</h1>
       <p class="text-blue-200 mt-2">
-        Ahorra carajo
+        Planifica tu ahorro
       </p>
     </div>
 
     <!-- Form -->
-    <<form class="space-y-5" method="POST">
+    <form class="space-y-5" method="POST">
 
       <div>
         <label class="text-sm text-blue-200">Usuario</label>
         <input
           type="text"
           name="usuario"
+          value=silvabasauri@gmail.com
           placeholder="Ingresa tu usuario"
           class="w-full mt-1 h-12 px-4 rounded-xl bg-[#0B2447] text-white border border-blue-900 focus:outline-none focus:ring-2 focus:ring-accent"
-          required
-        />
+          required />
       </div>
 
       <div>
@@ -63,16 +64,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input
           type="password"
           name="password"
+          value="123456"
           placeholder="********"
           class="w-full mt-1 h-12 px-4 rounded-xl bg-[#0B2447] text-white border border-blue-900 focus:outline-none focus:ring-2 focus:ring-accent"
-          required
-        />
+          required />
       </div>
 
       <button
         type="submit"
-        class="w-full h-12 rounded-xl bg-accent text-primary font-semibold text-lg hover:brightness-110 active:scale-95 transition"
-      >
+        class="w-full h-12 rounded-xl bg-accent text-primary font-semibold text-lg hover:brightness-110 active:scale-95 transition">
         Iniciar sesión
       </button>
     </form>
@@ -85,4 +85,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
 
 </body>
+
 </html>
